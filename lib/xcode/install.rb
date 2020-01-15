@@ -520,6 +520,7 @@ HELP
 
       return unless should_install
       prepare_package unless pkg_path.exist?
+      puts @install_prefix
       puts "Please authenticate to install #{name}..."
       `sudo installer -pkg #{pkg_path} -target /`
       fail Informative, "Could not install #{name}, please try again" unless installed?
