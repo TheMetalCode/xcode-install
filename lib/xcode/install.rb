@@ -741,7 +741,10 @@ HELP
     end
 
     def verify_app_cert
-      Fastlane::Actions::VerifyXcodeAction.run(xcode_path: @path.to_s)
+      # Not working for Xcode 14 beta
+      # https://github.com/xcpretty/xcode-install/issues/460
+      # https://github.com/fastlane/fastlane/issues/20380
+      # Fastlane::Actions::VerifyXcodeAction.run(xcode_path: @path.to_s)
       true
     rescue
       false
